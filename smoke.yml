@@ -1,0 +1,21 @@
+execution:
+  - executor: k6
+    concurrency: 10 # number of K6 workers
+    hold-for: 1m # execution duration
+    # iterations: 10 # number of iterations
+    scenario:
+      script: k6/smoke_test.js # has to be a valid K6 script
+
+settings:
+  artifacts-dir: artifacts/%Y-%m-%d_%H-%M-%S.%f
+
+reporting:
+  - module: console
+  # - module: blazemeter
+  - module: final_stats
+    summary: true # overall samples count and percent of failures
+    percentiles: true # display average times and percentiles
+    failed-labels: false # provides list of sample labels with failures
+    test-duration: true # provides test duration
+    dump-csv: artifacts/bzt_results.csv
+    dump-xml: artifacts/bzt_stats.xml

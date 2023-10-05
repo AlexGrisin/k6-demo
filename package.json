@@ -1,0 +1,11 @@
+{
+  "name": "k6-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "load": "k6 run --out csv=artifacts/test_results.csv scenarios/pdp_test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
